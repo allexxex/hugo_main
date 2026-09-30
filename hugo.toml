@@ -1,4 +1,4 @@
-baseURL = 'https://blog.allexxex.cn/'
+baseURL = 'https://allexxex.github.io/blog/'
 title = 'Allexxex 的博客'
 defaultContentLanguage = 'zh-cn'
 defaultContentLanguageInSubdir = false
