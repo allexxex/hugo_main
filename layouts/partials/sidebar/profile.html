@@ -1,0 +1,29 @@
+<div class="sidebar-profile">
+  <div class="avatar">
+    <div class="avatar-inner">
+      {{ with .Site.Params.avatar }}
+        <img src="{{ . | strings.TrimPrefix "/" | relURL }}" alt="{{ $.Site.Params.author }}">
+      {{ else }}
+        {{ substr (default "S" .Site.Params.author) 0 1 | upper }}
+      {{ end }}
+    </div>
+  </div>
+  <div class="sidebar-name">{{ default "Author" .Site.Params.author }}</div>
+  <div class="sidebar-tagline">{{ default "// Developer" .Site.Params.tagline }}</div>
+  {{ with .Site.Params.bio }}<div class="sidebar-bio">{{ . }}</div>{{ end }}
+  {{ with .Site.Params.social }}
+  <div class="profile-social">
+    {{ range . }}
+    <a href="{{ .url }}" title="{{ .name }}" aria-label="{{ .name }}" target="_blank" rel="noopener noreferrer">
+      {{ if eq (lower .name) "codeforces" }}
+      <span class="profile-social-letter" aria-hidden="true">CF</span>
+      {{ else if eq (lower .name) "atcoder" }}
+      <span class="profile-social-letter" aria-hidden="true">At</span>
+      {{ else }}
+      {{ partial "social-icon.html" (dict "name" (lower .name)) }}
+      {{ end }}
+    </a>
+    {{ end }}
+  </div>
+  {{ end }}
+</div>

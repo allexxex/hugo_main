@@ -1,0 +1,12 @@
+{{ if ne site.Params.sidebar.showRecent false }}
+<div class="sidebar-recent">
+  <div class="sidebar-nav-label">{{ i18n "recent" }}</div>
+  {{ $pages := where .Site.RegularPages "Section" "posts" }}
+  {{ $pinned := where $pages "Params.pinned" true }}
+  {{ $regular := where $pages "Params.pinned" "ne" true }}
+  {{ $posts := $pinned.ByDate.Reverse | append $regular.ByDate.Reverse }}
+  {{ range first (site.Params.sidebar.recentLimit | default 5) $posts }}
+  <a href="{{ .RelPermalink }}" class="sidebar-recent-item">{{ if .Params.pinned }}<span class="post-pin">置顶</span>{{ end }}{{ .Title }}</a>
+  {{ end }}
+</div>
+{{ end }}

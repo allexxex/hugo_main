@@ -1,0 +1,140 @@
+baseURL = 'https://blog.allexxex.cn/'
+title = 'Allexxex 的博客'
+defaultContentLanguage = 'zh-cn'
+defaultContentLanguageInSubdir = false
+theme = 'hugo-theme-spectra'
+
+[outputs]
+  home = ['HTML', 'RSS', 'JSON']
+
+[pagination]
+  pagerSize = 10
+
+[taxonomies]
+  tag = 'tags'
+  series = 'series'
+
+[params]
+  homepagePostsLimit = 10
+  cardSummaryLength = 150
+  relatedPostsLimit = 3
+  cardImageQuality = 80
+  coverImageQuality = 85
+  author = 'Allexxex'
+  description = '记录技术、生活与思考。'
+  tagline = '个人笔记与实践'
+  bannerTitle = 'Allexxex 的'
+  bannerHighlight = '博客'
+  bannerSubtitle = '技术 · 生活 · 思考'
+  bio = '独立思考，明辨是非'
+  share = false
+  enableLoadingAnimation = false
+  enableMouseGlow = false
+  showBanner = true
+  showReadingProgress = true
+  enableLightbox = true
+  showScrollTop = true
+  enableSearch = true
+  showRelatedPosts = true
+  showSeriesNav = true
+  enableCodeCopy = true
+  enableScrollAnimation = false
+  customCSS = ['css/custom.css']
+
+  [params.style]
+    colorAccent = '#24736d'
+    colorAccentWarm = '#d36a3d'
+    colorAccentSoft = '#8e9a48'
+    fontDisplay = "'Outfit', sans-serif"
+    fontBody = "'Zen Maru Gothic', 'Noto Sans SC', sans-serif"
+    fontMono = "'JetBrains Mono', monospace"
+    bannerImageText = '#fff'
+    bannerImageGradient = 'linear-gradient(135deg, #1e6d67, #2e847b)'
+    bannerImageGradientFill = 'transparent'
+
+  [params.sidebar]
+    showAllPosts = true
+    showCategories = true
+    showTags = true
+    showRecent = true
+    categoryLimit = 5
+    tagsLimit = 20
+    recentLimit = 5
+    bio = '记录技术、生活与思考。'
+
+[markup]
+  [markup.highlight]
+    guessSyntax = true
+    noClasses = false
+    lineNos = false
+    lineNumbersInTable = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 4
+  [markup.goldmark.renderer]
+    unsafe = true
+  [markup.goldmark.extensions.passthrough]
+    enable = true
+    [markup.goldmark.extensions.passthrough.delimiters]
+      block = [['$$', '$$']]
+      inline = [['$', '$']]
+
+[languages]
+  [languages.zh-cn]
+    locale = 'zh-CN'
+    label = '简体中文'
+    weight = 1
+    title = 'Allexxex 的博客'
+
+    [languages.zh-cn.params]
+      description = '记录技术、生活与思考。'
+      author = 'Allexxex'
+      tagline = '技术 · 生活 · 思考'
+      bio = '你好，我是 Allexxex。这里记录我的技术实践、生活观察与个人思考。'
+
+    [[languages.zh-cn.params.social]]
+      name = 'GitHub'
+      url = 'https://github.com/allexxex'
+
+    [[languages.zh-cn.params.social]]
+      name = 'Codeforces'
+      url = 'https://codeforces.com/profile/AllExxex'
+
+    [[languages.zh-cn.params.social]]
+      name = 'AtCoder'
+      url = 'https://atcoder.jp/users/allexxex'
+
+    [[languages.zh-cn.menus.main]]
+      name = '首页'
+      pageRef = '/'
+      weight = 1
+      pre = '⌂'
+    [[languages.zh-cn.menus.main]]
+      name = '文章'
+      pageRef = '/posts'
+      weight = 2
+      pre = '✎'
+    [[languages.zh-cn.menus.main]]
+      name = '关于'
+      pageRef = '/about'
+      weight = 5
+      pre = '◉'
+
+  [languages.en]
+    disabled = true
+
+[related]
+  includeNewer = true
+  threshold = 50
+  toLower = true
+  [[related.indices]]
+    name = 'tags'
+    weight = 80
+  [[related.indices]]
+    name = 'date'
+    weight = 10
+    pattern = '2006'
+
+[caches]
+  [caches.images]
+    dir = ':cacheDir/images'
